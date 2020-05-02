@@ -1,5 +1,4 @@
 
-
 variable "internal_nets" {
   type = number
   default = 2
