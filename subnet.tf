@@ -25,9 +25,9 @@ resource "aws_subnet" "private" {
   count = var.internal_nets
 
   availability_zone = data.aws_availability_zones.available.names[count.index]
+  map_public_ip_on_launch = false
   vpc_id = aws_vpc.main_vpc.id
   cidr_block = "10.0.${var.internal_nets+count.index}.0/24"
-  map_public_ip_on_launch = true
 
   tags = {
     status = "private"
